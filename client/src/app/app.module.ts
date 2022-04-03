@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WebTemplateViewerComponent } from './web-template-viewer/web-template-viewer.component';
@@ -10,7 +11,8 @@ import { WebTemplateViewerComponent } from './web-template-viewer/web-template-v
     WebTemplateViewerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
