@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TemplatesService } from './templates.service';
 import { Subscription } from 'rxjs';
+import { TemplateInfo } from '../template-info';
 
 @Component({
   selector: 'web-template-viewer',
@@ -14,7 +15,7 @@ export class WebTemplateViewerComponent implements OnInit {
   @Input() public templateListName: string = '';
 
   public templatesSub: Subscription;
-  public templates: any[] = [];
+  public templates: TemplateInfo[] = [];
 
   constructor(
     private templatesService: TemplatesService
@@ -31,5 +32,4 @@ export class WebTemplateViewerComponent implements OnInit {
   ngOnDestroy(): void {
     this.templatesSub?.unsubscribe();
   }
-
 }
