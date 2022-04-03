@@ -1,4 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { TemplatesService } from './templates.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'web-template-viewer',
@@ -11,9 +13,23 @@ export class WebTemplateViewerComponent implements OnInit {
   @Input() public imagesPath: string = '';
   @Input() public templateListName: string = '';
 
-  constructor() { }
+  public templatesSub: Subscription;
+  public templates: any[] = [];
+
+  constructor(
+    private templatesService: TemplatesService
+  ) { }
 
   ngOnInit(): void {
+    this.templatesSub = this.templatesService.getTemplates(
+      this.apiUrl,
+      this.templatePath,
+      this.templateListName
+    ).subscribe((templates) => this.templates = templates);
+  }
+
+  ngOnDestroy(): void {
+    this.templatesSub?.unsubscribe();
   }
 
 }
