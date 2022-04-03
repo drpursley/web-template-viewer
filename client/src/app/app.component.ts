@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  public apiUrl = 'http://localhost:8080';
+  public apiUrl = 'api';
   public templatePath = 'data';
   public imagesPath = 'images';
   public templateListName = 'templates.json';

@@ -4,7 +4,7 @@ const app = express();
 const port = 8080; // default port to listen
 
 // mount static content
-app.use(express.static('public'));
+app.use('/api', express.static('public'));
 
 // start the Express server
 app.listen(port, () => {
