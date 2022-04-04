@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { TemplatesService } from './templates.service';
-import { Subscription } from 'rxjs';
+import { BehaviorSubject, ReplaySubject, Subscription } from 'rxjs';
 import { TemplateInfo } from '../template-info';
 
 @Component({
@@ -16,6 +16,8 @@ export class WebTemplateViewerComponent implements OnInit {
 
   public templatesSub: Subscription;
   public templates: TemplateInfo[] = [];
+  public selectedTemplateIndex$ = new BehaviorSubject<number>(0);
+  public displayedTemplate$ = new ReplaySubject<TemplateInfo>(1);
 
   constructor(
     private templatesService: TemplatesService
@@ -26,7 +28,10 @@ export class WebTemplateViewerComponent implements OnInit {
       this.apiUrl,
       this.templatePath,
       this.templateListName
-    ).subscribe((templates) => this.templates = templates);
+    ).subscribe((templates) => {
+      this.templates = templates;
+      this.displayedTemplate$.next(templates[0]);
+    });
   }
 
   ngOnDestroy(): void {

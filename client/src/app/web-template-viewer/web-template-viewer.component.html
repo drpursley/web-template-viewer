@@ -1,1 +1,6 @@
-<p>web-template-viewer works!</p>
+<displayed-template
+  *ngIf="templates?.length"
+  [apiUrl]="apiUrl"
+  [imagesPath]="imagesPath"
+  [displayedTemplate$]="displayedTemplate$">
+</displayed-template>
