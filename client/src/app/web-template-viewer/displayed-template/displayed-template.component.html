@@ -1,0 +1,11 @@
+<div *ngIf="displayedTemplate" class="group">
+  <img src="{{ largeImagePath }}" alt="Large Image" width="430" height="360" />
+  <div class="details">
+    <p><strong>Title</strong> {{ displayedTemplate.title }}</p>
+    <p><strong>Description</strong> {{ displayedTemplate.description }}</p>
+    <p><strong>Cost</strong> {{ displayedTemplate.cost }}</p>
+    <p><strong>ID #</strong> {{ displayedTemplate.id }}</p>
+    <p><strong>Thumbnail File</strong> {{ displayedTemplate.thumbnail }}</p>
+    <p><strong>Large Image File</strong> {{ displayedTemplate.image }}</p>
+  </div>
+</div>

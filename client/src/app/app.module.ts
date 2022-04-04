@@ -4,11 +4,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { WebTemplateViewerComponent } from './web-template-viewer/web-template-viewer.component';
+import { DisplayedTemplateComponent } from './web-template-viewer/displayed-template/displayed-template.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WebTemplateViewerComponent
+    WebTemplateViewerComponent,
+    DisplayedTemplateComponent
   ],
   imports: [
     BrowserModule,
