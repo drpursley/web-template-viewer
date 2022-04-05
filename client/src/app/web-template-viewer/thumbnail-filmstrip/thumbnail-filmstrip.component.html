@@ -1,0 +1,14 @@
+<div class="group">
+  <a (click)="!isFirstPage && previous()" class="previous" [ngClass]="{'disabled': isFirstPage}">Previous</a>
+  <div class="thumbnails" *ngFor="let template of displayedTemplates">
+    <a
+      (click)="selectTemplate(template.id)"
+      [ngClass]="{'active': template.id === selectedThumbnailId}"
+      title="{{ template.title }}">
+        <img src="{{ template.src }}" alt="{{ template.alt }}" width="145" height="121"/>
+        <span>{{ template.id }}</span>
+    </a>
+  </div>
+  <a (click)="!isLastPage && next()" class="next" [ngClass]="{'disabled': isLastPage}">Next</a>
+</div>
+
