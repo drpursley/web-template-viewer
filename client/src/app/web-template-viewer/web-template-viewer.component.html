@@ -8,6 +8,15 @@
   [imagesPath]="imagesPath"
   [displayedTemplate$]="displayedTemplate$">
 </displayed-template>
+<thumbnail-filmstrip
+  *ngIf="templates?.length"
+  [apiUrl]="apiUrl"
+  [imagesPath]="imagesPath"
+  [templates]="templates"
+  [currentThumbnailIndex$]="currentThumbnailIndex$"
+  [displayedTemplate$]="displayedTemplate$"
+  [thumbnailsPerPage]="thumbnailsPerPage">
+</thumbnail-filmstrip>
 
 <footer>
   <a href="instructions.pdf">Download PDF Instructions</a>

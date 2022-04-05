@@ -16,7 +16,9 @@ export class WebTemplateViewerComponent implements OnInit {
 
   public templatesSub: Subscription;
   public templates: TemplateInfo[] = [];
+  public thumbnailsPerPage: number = 4;
   public selectedTemplateIndex$ = new BehaviorSubject<number>(0);
+  public currentThumbnailIndex$ = new BehaviorSubject<number>(0);
   public displayedTemplate$ = new ReplaySubject<TemplateInfo>(1);
 
   constructor(
