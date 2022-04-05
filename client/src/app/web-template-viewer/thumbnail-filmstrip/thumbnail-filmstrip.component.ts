@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Observable, Subscription } from 'rxjs';
 import { TemplateInfo } from 'src/app/template-info';
 
@@ -21,6 +21,9 @@ export class ThumbnailFilmstripComponent implements OnInit {
   @Input() public currentThumbnailIndex$: Observable<number>;
   @Input() public thumbnailsPerPage: number = 4;
   @Input() public displayedTemplate$: Observable<TemplateInfo>;
+  @Output() public onSelect = new EventEmitter<string>();
+  @Output() public onPrevious = new EventEmitter();
+  @Output() public onNext = new EventEmitter();
 
   public templatesSub: Subscription;
   public indexSub: Subscription;
@@ -43,15 +46,15 @@ export class ThumbnailFilmstripComponent implements OnInit {
   }
 
   public selectTemplate(id: string) {
-    console.log('selectTemplate', id); //stub
+    this.onSelect.emit(id);
   }
 
   public previous() {
-    console.log('previous'); //stub
+    this.onPrevious.emit();
   }
 
   public next() {
-    console.log('next'); //stub
+    this.onNext.emit();
   }
 
   private updateDisplayedTemplates(currentThumbnailIndex: number) {

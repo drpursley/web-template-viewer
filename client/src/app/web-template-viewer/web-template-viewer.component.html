@@ -15,7 +15,10 @@
   [templates]="templates"
   [currentThumbnailIndex$]="currentThumbnailIndex$"
   [displayedTemplate$]="displayedTemplate$"
-  [thumbnailsPerPage]="thumbnailsPerPage">
+  [thumbnailsPerPage]="thumbnailsPerPage"
+  (onSelect)="onSelect($event)"
+  (onPrevious)="onPrevious()"
+(onNext)="onNext()">
 </thumbnail-filmstrip>
 
 <footer>

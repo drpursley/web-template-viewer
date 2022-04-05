@@ -39,4 +39,16 @@ export class WebTemplateViewerComponent implements OnInit {
   ngOnDestroy(): void {
     this.templatesSub?.unsubscribe();
   }
+
+  public onSelect(id: string) {
+    this.displayedTemplate$.next(this.templates.find((template) => template.id === id))
+  }
+
+  public onPrevious() {
+    this.currentThumbnailIndex$.next(this.currentThumbnailIndex$.getValue() - this.thumbnailsPerPage);
+  }
+
+  public onNext() {
+    this.currentThumbnailIndex$.next(this.currentThumbnailIndex$.getValue() + this.thumbnailsPerPage);
+  }
 }
